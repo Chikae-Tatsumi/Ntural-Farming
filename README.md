@@ -1,3 +1,3 @@
-# Ntural-vs.-Conventional-Farming
+# Ntural-Farming
 
 This is the home of all the bioinformatic and statistic codes used in our paper: Coming soon...
