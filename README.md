@@ -1,1 +1,3 @@
-# Ntural-vs.-Conventional-Farming-Paddy-Field-in-Hokkaido
+# Ntural-vs.-Conventional-Farming
+
+This is the home of all the bioinformatic and statistic codes used in our paper: Coming soon...
