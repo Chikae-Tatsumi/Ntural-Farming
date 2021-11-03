@@ -1,22 +1,19 @@
-#DADA2 Pipeline Tutorial (1.12)
+# DADA2 Pipeline Tutorial (1.12)
+# See http://benjjneb.github.io/dada2/tutorial.html
 
-#See http://benjjneb.github.io/dada2/tutorial.html
-
-#Getting ready
+# Getting ready
 library(dada2); packageVersion("dada2")
 library(ShortRead); packageVersion("ShortRead")
 library(phyloseq); packageVersion("phyloseq")
 library(Biostrings); packageVersion("Biostrings")
 
-DATABASE = "~/R/Database/silva_nr_v138_train_set.fa.gz"
+DATABASE = "~/R/Database/silva_nr_v138_train_set.fa.gz" # CHANGE ME to the directory containing the database
 
 # For with GT
 setwd("~/R/Analysis/4_Paddy/HNPF/16S/withGT")  ## CHANGE ME to the directory containing the fastq files.
 filez <- list.files()
 file.rename(from=filez, to=sub(pattern=".fastq", replacement=".fastq.gz", filez))
 
-# Define which is forward fastq and reverse fastq
-# Forward and reverse fastq filenames have format: SAMPLENAME_R1_001.fastq and SAMPLENAME_R2_001.fastq
 fnFs <- sort(list.files(getwd(), pattern = ".fastq.gz", full.names = TRUE))
 
 # Extract sample names, assuming filenames have format: SAMPLENAME_XXX.fastq
@@ -97,14 +94,14 @@ head(track)
 write.table(track,file="track.txt")
 write.table(seqtab.nochim, file="seqtabnochim.txt")
 
-#Assign taxonomy
-#Install "silva_nr_v132_train_set.fa.gz" from: https://zenodo.org/record/1172783#.XUmvQ_ZFw2w
-#Other taxonomic reference database: http://benjjneb.github.io/dada2/training.html
+# Assign taxonomy
+# Install "silva_nr_v132_train_set.fa.gz" from: https://zenodo.org/record/1172783#.XUmvQ_ZFw2w
+# Other taxonomic reference database: http://benjjneb.github.io/dada2/training.html
 taxa <- assignTaxonomy(seqtab.nochim,DATABASE, multithread=TRUE)
 taxa.print <- taxa # Removing sequence rownames for display only
 rownames(taxa.print) <- NULL
 head(taxa.print)
-#If your reads do not seem to be appropriately assigned, for example lots of your bacterial 16S sequences are being assigned as Eukaryota NA NA NA NA NA, your reads may be in the opposite orientation as the reference database. Tell dada2 to try the reverse-complement orientation with assignTaxonomy(..., tryRC=TRUE) and see if this fixes the assignments. 
+# If your reads do not seem to be appropriately assigned, for example lots of your bacterial 16S sequences are being assigned as Eukaryota NA NA NA NA NA, your reads may be in the opposite orientation as the reference database. Tell dada2 to try the reverse-complement orientation with assignTaxonomy(..., tryRC=TRUE) and see if this fixes the assignments. 
 
 taxa.print <- taxa  # Removing sequence rownames for display only
 rownames(taxa.print) <- NULL
@@ -122,18 +119,13 @@ ps <- merge_phyloseq(ps, dna)
 taxa_names(ps) <- paste0("ASV", seq(ntaxa(ps)))
 ps
 
-#Added
-otu_table.t<-t(ps@otu_table)
-ps.t<-cbind(otu_table.t,ps@tax_table)
-write.table(ps.t,  file="ASV_table_withMitoChlo.txt")
-
-# Remove 
+# Remove Mitochondria, Chloroplast, and Eukaryote
 ps_removed = subset_taxa(ps,(
                              Family  != "Mitochondria"|is.na(Family) &
                              Class   != "Chloroplast"|is.na(Class)  &
                              Kingdom  != "Eukaryota" ))
 
-#To output OTU table
+# To output ASV table
 otu_table.t<-t(ps_removed@otu_table)
 ps.t<-cbind(otu_table.t,ps_removed@tax_table)
 write.table(ps.t,  file="ASV_table.txt")
