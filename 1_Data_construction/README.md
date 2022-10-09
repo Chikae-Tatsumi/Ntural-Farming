@@ -5,8 +5,3 @@ Before starting, please install the fastq files from XXXX, and also download dat
 Because our IonTorrent setting changed between the runs to generate the fastq files for this project, some of the fastq files had full forward primer sequence but other files lost the first one or two bases from the forward primer sequence. Therefore, these R scripts contains the process to remove frist one or two bases from the samples with full forward primer sequences to equalize the start base of the forward primer sequences in all the samples.
 In bacterial 16S RNA fastq files, the fastq files namesd as from "...16S_001_R..." to "...16S_010_R...", from "...16S_012_R..." to "...16S_025_R...", from "...16S_029_R..." to "...16S_036_R...", and from "...16S_043_R..." to "...16S_049_R..." have the full forward primer sequence, but the other files does not have the first two bases GT.
 In fungal ITS fastq files, the fastq files namesd as from "...ITS_103_R..." to "...ITS_114_R..." have the full forward primer sequence, but the other files does not have the first one bases T.
-
-# Tax4Fun2
-
-
-# FungalTrait
