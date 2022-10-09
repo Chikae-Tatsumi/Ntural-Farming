@@ -6,8 +6,8 @@ Because our IonTorrent setting changed between the runs to generate the fastq fi
 In bacterial 16S RNA fastq files, the fastq files namesd as from "...16S_001_R..." to "...16S_010_R...", from "...16S_012_R..." to "...16S_025_R...", from "...16S_029_R..." to "...16S_036_R...", and from "...16S_043_R..." to "...16S_049_R..." have the full forward primer sequence, but the other files does not have the first two bases GT.
 In fungal ITS fastq files, the fastq files namesd as from "...ITS_103_R..." to "...ITS_114_R..." have the full forward primer sequence, but the other files does not have the first one bases T.
 
-# Other data availability
-Please contact me if you need any input files (e.g., metadata.csv).
+# Data availability
+As mentioned above, the sequence data is available online. Please contact me if you need any other input files (e.g., metadata.csv).
 
 # File order
 For ITS, please run F1 -> F2 -> ... -> F4 files. For 16S rRNA, please run P1 -> P2 -> ... -> P4 files.
