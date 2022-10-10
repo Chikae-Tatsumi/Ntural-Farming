@@ -5,8 +5,6 @@ library(devtools)
 install_github("zdk123/SpiecEasi")
 library(SpiecEasi)
 library(igraph)  
-library(Hmisc)  
-library(Matrix)  
 
 # Import files
 setwd("~/R/Analysis/4_Paddy/HNPF")
