@@ -12,11 +12,11 @@ ASV.table <- read.table(file="rarefied_ASV_table.txt",header=T)
 ASV <- ASV.table [,1:(ncol(ASV.table)-7)] 
 taxonomy <- ASV.table [,(ncol(ASV.table)-6):ncol(ASV.table)] 
 percent <- ASV / mean(colSums(ASV)) *100
-# Remove "p__" before phylum name
-taxonomy <- data.frame(lapply(taxonomy, function(x){gsub(pattern="f__", replacement = "", x)}),stringsAsFactors = FALSE) # Change p__ --> the first alphabet of the level you analyze
+# Remove "f__" before phylum name
+taxonomy <- data.frame(lapply(taxonomy, function(x){gsub(pattern="f__", replacement = "", x)}),stringsAsFactors = FALSE) 
 
 # Aggregate
-agrregated <- aggregate(percent, by=list(taxonomy$Family),FUN = sum,na.rm=F) # Change Phylum --> the level you analyze
+agrregated <- aggregate(percent, by=list(taxonomy$Family),FUN = sum,na.rm=F) 
 row.names(agrregated)<-agrregated[,1]
 agrregated <- agrregated[,-1]
 agrregated <- data.frame(agrregated)
