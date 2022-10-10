@@ -6,7 +6,6 @@ DESIGN <- read.csv("experimental_design.csv")
 setwd("~/R/Analysis/4_Paddy/HNPF/ITS")
 METADATA <- read.csv("diversity.csv",header=T,row.names=1) 
 
-design <- DESIGN
 target <- METADATA
 
 NAME1 <- "Type"
@@ -16,7 +15,7 @@ NAME3 <- "Site"
 # ANOVA
 Results <- NULL
 for (i in 1:ncol(target)){
-data <- cbind(design, as.numeric(target[,i]))
+data <- cbind(DESIGN, as.numeric(target[,i]))
 colnames (data)[ncol(data)] <- colnames(target)[i]
 data <- na.omit (data)
 
