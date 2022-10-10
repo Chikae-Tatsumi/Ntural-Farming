@@ -56,7 +56,6 @@ data$Abundance <- as.numeric(as.character(data$Abundance))
 
 rownames<-rownames(selected)[nrow(selected):1]
 data$Example <- factor(data$Example, levels = rownames)
-# data <- na.omit(data)
 
 # ggplot
 ggplot (data,  mapping=aes(x=Type, y=Abundance, fill=Example))+ 
