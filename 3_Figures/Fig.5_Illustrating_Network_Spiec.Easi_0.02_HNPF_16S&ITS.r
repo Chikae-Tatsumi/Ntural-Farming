@@ -5,7 +5,7 @@ library(SpiecEasi)
 library(igraph)  
 
 # Import files
-setwd("~/R/Analysis/4_Paddy/HNPF/Network/SpiecEasi/0.02/fungi_bacteria")
+setwd("~/R/Analysis/4_Paddy/HNPF/Network/SpiecEasi/top200/fungi_bacteria")
 NAME <- c("SiteA.CF","SiteB.CF","SiteC.CF","SiteA.NF","SiteB.NF","SiteC.NF")
 
 for (i in 1:6){
