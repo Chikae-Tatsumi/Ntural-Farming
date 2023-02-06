@@ -122,7 +122,7 @@ ps
 # Remove Mitochondria, Chloroplast, and Eukaryote
 ps_removed = subset_taxa(ps,(
                              Family  != "Mitochondria"|is.na(Family) &
-                             Class   != "Chloroplast"|is.na(Class)  &
+                             Order   != "Chloroplast"|is.na(Order)  &
                              Kingdom  != "Eukaryota" ))
 
 # To output ASV table
