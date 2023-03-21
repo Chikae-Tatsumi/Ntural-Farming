@@ -10,7 +10,7 @@ library(Biostrings); packageVersion("Biostrings")
 DATABASE = "~/R/Database/silva_nr_v138_train_set.fa.gz" # CHANGE ME to the directory containing the database
 
 # For with GT
-setwd("~/R/Analysis/4_Paddy/16S/withGT")  ## CHANGE ME to the directory containing the fastq files.
+setwd("~/R/Analysis/4_Paddy/16S/HNPF/withGT")  ## CHANGE ME to the directory containing the fastq files.
 filez <- list.files()
 file.rename(from=filez, to=sub(pattern=".fastq", replacement=".fastq.gz", filez))
 
@@ -33,7 +33,7 @@ head(out_withGT)
 
 
 # For without GT
-setwd("~/R/Analysis/4_Paddy/16S/withoutGT")  ## CHANGE ME to the directory containing the fastq files.
+setwd("~/R/Analysis/4_Paddy/16S/HNPF/withoutGT")  ## CHANGE ME to the directory containing the fastq files.
 filez <- list.files()
 file.rename(from=filez, to=sub(pattern=".fastq", replacement=".fastq.gz", filez))
 
@@ -63,7 +63,7 @@ out <- rbind(out_withGT, out_withoutGT)
 out <- out[order(rownames(out)),]
 filtFs <- filtFs[order(names(filtFs))]
 
-setwd("~/R/Analysis/4_Paddy/16S")  ## CHANGE ME to the directory containing the fastq files.
+setwd("~/R/Analysis/4_Paddy/16S/HNPF")  ## CHANGE ME to the directory containing the fastq files.
 
 # If too few reads are passing the filter, consider relaxing maxEE, perhaps especially on the reverse reads (eg. maxEE=c(2,5)), and reducing the truncLen to remove low quality tails
 # Learn the Error Rates
