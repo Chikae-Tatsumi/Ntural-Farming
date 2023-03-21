@@ -28,7 +28,7 @@ estimate <- summary$coefficients[,1]
 Fval <- anova[,5]
 Pval <-anova[,6]
 Bind <- c( estimate[2],Fval[1], Pval[1], Fval[2], Pval[2], Fval[3], Pval[3])
-colnames(Bind) <- c("TypeNF.estimate", paste(NAME1,".F",sep=""),paste(NAME1,".P",sep=""),paste(NAME2,".F",sep=""),paste(NAME2,".P",sep=""),paste(NAME1,"*",NAME2,".F",sep=""),paste(NAME1,"*",NAME2,".P",sep=""))
+names(Bind) <- c("TypeNF.estimate", paste(NAME1,".F",sep=""),paste(NAME1,".P",sep=""),paste(NAME2,".F",sep=""),paste(NAME2,".P",sep=""),paste(NAME1,"*",NAME2,".F",sep=""),paste(NAME1,"*",NAME2,".P",sep=""))
 Results <- rbind(Results, Bind)}
 
 rownames(Results) <- colnames(target)
