@@ -10,5 +10,5 @@ In fungal ITS fastq files, the fastq files namesd as from "...ITS_103_R..." to "
 As mentioned above, the sequence data is available online. Please contact me if you need any other input files (e.g., metadata.csv).
 
 # File order
-For ITS, please run F1 -> F2 -> F3 files. For 16S rRNA, please run P1 -> P2 -> ... -> P4 files.
+For ITS, we ran F1 -> F2 -> F3 files. For 16S rRNA, we ran P1 -> P2 -> ... -> P4 files.
 
