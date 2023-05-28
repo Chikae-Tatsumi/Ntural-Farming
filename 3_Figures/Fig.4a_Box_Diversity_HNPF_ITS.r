@@ -20,7 +20,7 @@ ggplot(data) +
 geom_boxplot(aes(y = shannon, x = Type, fill = Type))+   
 scale_fill_manual(values = c("white","black"))+ 
 theme_classic()+
-theme(text=element_text(size=12,color="black"),axis.text=element_text(size=12,color="black"))+
+theme(text=element_text(size=14,color="black"),axis.text=element_text(size=14,color="black"))+
 scale_y_continuous(name = "Fungal \n species diversity")+
 facet_wrap(~Season)
 
