@@ -24,4 +24,4 @@ theme(text=element_text(size=14,color="black"),axis.text=element_text(size=14,co
 scale_y_continuous(name = "Fungal \n species diversity")+
 facet_wrap(~Season)
 
-ggsave(file = "Shannon.ITS.png",width = 4, height = 3)
+ggsave(file = "Shannon.ITS.png",width = 3.75, height = 3)
