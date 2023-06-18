@@ -9,10 +9,9 @@ fungaltrait.table <- read.csv(file="fungaltrait.table.csv",header=T,row.names = 
 ASV <- fungaltrait.table [,1:(ncol(fungaltrait.table)-31)] 
 guild <- fungaltrait.table [,(ncol(fungaltrait.table)-24):ncol(fungaltrait.table)] 
 percent <- ASV / mean(colSums(ASV)) *100
-guild$lifestyle <- paste(guild$primary_lifestyle, "_",guild$secondary_lifestyle)
 
 percent.table <- cbind (percent, guild)
-sap.table<- percent.table[grep("saprotroph", guild$lifestyle),]
+sap.table<- percent.table[grep("saprotroph", guild$primary_lifestyle),]
 
 ASV.sap <- sap.table [,1:(ncol(sap.table)-26)] 
 ASV.sap <- as.matrix(ASV.sap)
